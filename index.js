@@ -34,6 +34,10 @@ class Student {
         let sum = this.scores.reduce((a,b) => a + b);
         return sum / this.scores.length;
     }
+    // static class method (NOT OFTEN USED)
+    static EnrollStudents() {
+        return "ENROLLING STUDENTS!"
+    }
 }
 
 let firstStudent = new Student("Rina", "Abu", 4)
@@ -43,6 +47,14 @@ let firstStudent = new Student("Rina", "Abu", 4)
 // console.log(firstStudent.markLate());
 // console.log(firstStudent.markLate());
 // console.log(firstStudent.markLate());
-console.log(firstStudent.addScore(100));
-console.log(firstStudent.addScore(98));
-console.log(firstStudent.calculateAverage());
+// console.log(firstStudent.addScore(100));
+// console.log(firstStudent.addScore(98));
+// console.log(firstStudent.calculateAverage());
+
+///////////////////////////////
+//////////// SINGLY LINKED LISTS //////////
+///////////////////////////////
+
+// What is a linked list? //
+// A data structure that contains a head, tail, and length property
+// Consist of nodes, and each node has a value and a pointer to another node or null
