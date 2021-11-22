@@ -44,6 +44,16 @@ class SinglyLinkedList {
         return this;
     }
 
+    traverse() {
+        // start at the head
+        let current = this.head;
+        // while there's a current, keep reassigning the current to the next node to traverse all the way to the tail
+        while(current) {
+            console.log(current.val);
+            current = current.next;
+        }
+    }
+
 }
 
 // CONSTRUCTOR SECTION //
@@ -58,6 +68,7 @@ class SinglyLinkedList {
 // }
 
 // PUSH SECTION //
+// push example //
 // let list = new SinglyLinkedList()
 // list.push("HELLO")
 // list.push("GOODBYE")
@@ -70,3 +81,14 @@ class SinglyLinkedList {
 //   tail: Node { val: 'HOLA', next: null },
 //   length: 3
 // }
+
+// POP SECTION //
+// must traverse list find the second to last item and assign it's next to null, thus making it the new tail and then removing the old tail
+// example of traversing the linked list //
+// let list = new SinglyLinkedList()
+// list.push("HELLO")
+// list.push("GOODBYE")
+// list.push("HOLA")
+// list.push("ADIOS")
+// list.traverse();
+// pop example //
