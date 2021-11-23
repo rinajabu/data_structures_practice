@@ -44,6 +44,28 @@ class SinglyLinkedList {
         return this;
     }
 
+    pop() {
+        // if list is empty return undefined
+        if (!this.head) return undefined;
+        // set the current and newTail equal to each other
+        let current = this.head;
+        let newTail = current;
+        // while the current has a next, traverse the list until you reach the end
+        while (current.next) {
+            newTail = current;
+            current = current.next;
+        }
+        // when you reach the end
+        this.tail = newTail;
+        this.tail.next = null;
+        this.length--;
+        if (this.length === 0) {
+            this.head = null;
+            this.tail = null;
+        }
+        return current;
+    }
+
     traverse() {
         // start at the head
         let current = this.head;
@@ -53,7 +75,6 @@ class SinglyLinkedList {
             current = current.next;
         }
     }
-
 }
 
 // CONSTRUCTOR SECTION //
@@ -84,11 +105,18 @@ class SinglyLinkedList {
 
 // POP SECTION //
 // must traverse list find the second to last item and assign it's next to null, thus making it the new tail and then removing the old tail
-// example of traversing the linked list //
-// let list = new SinglyLinkedList()
-// list.push("HELLO")
-// list.push("GOODBYE")
-// list.push("HOLA")
-// list.push("ADIOS")
-// list.traverse();
-// pop example //
+// example of traversing the linked list and popping last item off //
+let list = new SinglyLinkedList()
+list.push("HELLO")
+list.push("GOODBYE")
+list.push("HOLA")
+// console.log(list);
+console.log(list.pop());
+// console.log(list);
+console.log(list.pop());
+// console.log(list);
+console.log(list.pop());
+console.log(list);
+// output
+// Node { val: 'ADIOS', next: null } 3
+// Node { val: 'HOLA', next: null } 2
