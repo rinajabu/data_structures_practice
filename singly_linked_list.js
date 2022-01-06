@@ -44,6 +44,7 @@ class SinglyLinkedList {
         return this;
     }
 
+    // method to remove a node from the end of the list
     pop() {
         // if list is empty return undefined
         if (!this.head) return undefined;
@@ -67,6 +68,7 @@ class SinglyLinkedList {
         return current;
     }
 
+    // method to remove a node to the beginning of the list
     shift() {
         // if list is empty return undefined
         if (!this.head) return undefined;
@@ -84,6 +86,27 @@ class SinglyLinkedList {
         return currentHead;
     }
 
+    unshift(val) {
+        // create a new node with the given value
+        const newNode = new Node(val);
+        // if the list is empty, set the head and tail to the newNode added
+        // must use if/else here, so that the newNode.next won't always point back to itself if you unshift an empty list
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = this.head;
+        } else {
+            // set the newNode's next property to the current head
+            newNode.next = this.head;
+            // set the head to the newNode
+            this.head = newNode;
+        }
+        // increment the length by 1
+        this.length++;
+        // return the list
+        return this;
+    }
+
+    // traverse the linked list
     traverse() {
         // start at the head
         let current = this.head;
@@ -106,7 +129,7 @@ class SinglyLinkedList {
 //   next: Node { val: 'there', next: Node { val: 'Rina', next: null } }
 // }
 
-// PUSH SECTION //
+// PUSH SECTION (add to end) //
 // push example //
 // let list = new SinglyLinkedList()
 // list.push("HELLO")
@@ -121,7 +144,7 @@ class SinglyLinkedList {
 //   length: 3
 // }
 
-// POP SECTION //
+// POP SECTION (remove from end) //
 // must traverse list find the second to last item and assign it's next to null, thus making it the new tail and then removing the old tail
 // example of traversing the linked list and popping last item off //
 // let list = new SinglyLinkedList()
@@ -139,15 +162,22 @@ class SinglyLinkedList {
 // Node { val: 'ADIOS', next: null } 3
 // Node { val: 'HOLA', next: null } 2
 
-// SHIFT SECTION //
+// SHIFT SECTION (remove from beginning) //
+// let list = new SinglyLinkedList()
+// list.push("HELLO")
+// list.push("GOODBYE")
+// list.push("HOLA")
+// console.log(list.shift());
+// console.log(list);
+// console.log(list.shift());
+// console.log(list);
+// // this last shift, the head and tail will be set to null
+// console.log(list.shift());
+// console.log(list);
+
+// UNSHIFT SECTION (add to beginning) //
 let list = new SinglyLinkedList()
 list.push("HELLO")
 list.push("GOODBYE")
 list.push("HOLA")
-console.log(list.shift());
-console.log(list);
-console.log(list.shift());
-console.log(list);
-// this last shift, the head and tail will be set to null
-console.log(list.shift());
-console.log(list);
+console.log(list.unshift("16"));
