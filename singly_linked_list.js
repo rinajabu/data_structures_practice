@@ -55,10 +55,11 @@ class SinglyLinkedList {
             newTail = current;
             current = current.next;
         }
-        // when you reach the end
+        // when you reach the end assign the second to last item as the new tail and set its next property to null, then decrease length by 1 (severs the link to the last item in list)
         this.tail = newTail;
         this.tail.next = null;
         this.length--;
+        // if popping the last item in the list, set head and tail to null
         if (this.length === 0) {
             this.head = null;
             this.tail = null;
