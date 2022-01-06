@@ -67,6 +67,23 @@ class SinglyLinkedList {
         return current;
     }
 
+    shift() {
+        // if list is empty return undefined
+        if (!this.head) return undefined;
+        // store the original head in a variable
+        let currentHead = this.head;
+        // set the head to be currentHead's next
+        this.head = currentHead.next;
+        // decrement the length by 1
+        this.length--;
+        // if list length becomes 0 after removing, set the tail to null
+        if (this.length === 0) {
+            this.tail = null;
+        }
+        // return the removed head
+        return currentHead;
+    }
+
     traverse() {
         // start at the head
         let current = this.head;
@@ -107,17 +124,30 @@ class SinglyLinkedList {
 // POP SECTION //
 // must traverse list find the second to last item and assign it's next to null, thus making it the new tail and then removing the old tail
 // example of traversing the linked list and popping last item off //
+// let list = new SinglyLinkedList()
+// list.push("HELLO")
+// list.push("GOODBYE")
+// list.push("HOLA")
+// // console.log(list);
+// console.log(list.pop());
+// // console.log(list);
+// console.log(list.pop());
+// // console.log(list);
+// console.log(list.pop());
+// console.log(list);
+// output
+// Node { val: 'ADIOS', next: null } 3
+// Node { val: 'HOLA', next: null } 2
+
+// SHIFT SECTION //
 let list = new SinglyLinkedList()
 list.push("HELLO")
 list.push("GOODBYE")
 list.push("HOLA")
-// console.log(list);
-console.log(list.pop());
-// console.log(list);
-console.log(list.pop());
-// console.log(list);
-console.log(list.pop());
+console.log(list.shift());
 console.log(list);
-// output
-// Node { val: 'ADIOS', next: null } 3
-// Node { val: 'HOLA', next: null } 2
+console.log(list.shift());
+console.log(list);
+// this last shift, the head and tail will be set to null
+console.log(list.shift());
+console.log(list);
