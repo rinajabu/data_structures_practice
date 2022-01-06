@@ -68,7 +68,7 @@ class SinglyLinkedList {
         return current;
     }
 
-    // method to remove a node to the beginning of the list
+    // method to remove a node from the beginning of the list
     shift() {
         // if list is empty return undefined
         if (!this.head) return undefined;
@@ -86,6 +86,7 @@ class SinglyLinkedList {
         return currentHead;
     }
 
+    // method to add a new node to the beginning of the list
     unshift(val) {
         // create a new node with the given value
         const newNode = new Node(val);
@@ -104,6 +105,11 @@ class SinglyLinkedList {
         this.length++;
         // return the list
         return this;
+    }
+
+    // method to get a specific node from the list at a given position
+    get(val) {
+        return null
     }
 
     // traverse the linked list
@@ -176,8 +182,10 @@ class SinglyLinkedList {
 // console.log(list);
 
 // UNSHIFT SECTION (add to beginning) //
-let list = new SinglyLinkedList()
-list.push("HELLO")
-list.push("GOODBYE")
-list.push("HOLA")
-console.log(list.unshift("16"));
+// let list = new SinglyLinkedList()
+// list.push("HELLO")
+// list.push("GOODBYE")
+// list.push("HOLA")
+// console.log(list.unshift("16"));
+
+// GET SECTION (get a specific node at a given position) //
