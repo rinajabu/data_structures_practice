@@ -107,9 +107,16 @@ class SinglyLinkedList {
         return this;
     }
 
-    // method to get a specific node from the list at a given position
-    get(val) {
-        return null
+    // method to get a specific node at a certain index from the list (zero index = starts at 0)
+    get(index) {
+        if (index < 0 || index >= this.length) return null;
+        let counter = 0;
+        let current = this.head;
+        while(counter !== index) {
+            current = current.next;
+            counter++;
+        }
+        return current;
     }
 
     // traverse the linked list
@@ -189,3 +196,10 @@ class SinglyLinkedList {
 // console.log(list.unshift("16"));
 
 // GET SECTION (get a specific node at a given position) //
+// let list = new SinglyLinkedList()
+// list.push("HELLO")
+// list.push("GOODBYE")
+// list.push("HOLA")
+// list.push("WAVE")
+// list.push("PEACE")
+// console.log(list.get(2));
