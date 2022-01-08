@@ -119,6 +119,11 @@ class SinglyLinkedList {
         return current;
     }
 
+    // method to change the value of a specific node at a given index
+    set(index, val) {
+        return null;
+    }
+
     // traverse the linked list
     traverse() {
         // start at the head
@@ -203,3 +208,5 @@ class SinglyLinkedList {
 // list.push("WAVE")
 // list.push("PEACE")
 // console.log(list.get(2));
+
+// SET SECTION (change the value of a node at a specific index) //
